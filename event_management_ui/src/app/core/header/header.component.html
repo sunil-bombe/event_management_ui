@@ -1,0 +1,26 @@
+<header class="clearfix">
+  <div class="container">
+    <div class="header-left" routerLink="/">
+      <h3>Event Management</h3>
+    </div>
+    <div class="header-right">
+      <label for="open">
+        <span class="hidden-desktop"></span>
+      </label>
+      <input type="checkbox" name="" id="open">
+      <nav>
+        <a >Search</a>
+        <a   *ngIf="isLoggedIn" routerLink="/cart">Cart</a>
+        <a  *ngIf="isLoggedIn" routerLink="/profile">Profile</a>
+        <a *ngIf="showAdminBoard" routerLink="#">Admin</a>
+        <a *ngIf="showEmployeeBoard" routerLink="#">Employee</a>
+        <a *ngIf="isLoggedIn else elseBlock"  (click)="logout()">Logout</a>
+        <ng-template #elseBlock>
+          <a routerLink="/login">Login</a>
+        </ng-template>
+
+      </nav>
+    </div>
+  </div>
+</header>
+
